@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>OxFit - Avaliação de Força Completa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 8px;
+    }
+    th {
+      background-color: #ddd;
+    }
+    .color-box {
+      color: white;
+      font-weight: bold;
+      padding: 5px;
+    }
+    .grau-5 { background-color: #2ecc71; }
+    .grau-4p { background-color: #a3d977; }
+    .grau-4  { background-color: #f1c40f; }
+    .grau-4m { background-color: #f39c12; }
+    .grau-3  { background-color: #e67e22; }
+    .grau-2  { background-color: #e74c3c; }
+    .grau-1,
+    .grau-0  { background-color: #c0392b; }
+  </style>
+</head>
+<body>
+
+<h1>Avaliação de Força Muscular - Escala de Oxford</h1>
+<table id="tabela">
+  <thead>
+    <tr>
+      <th>Movimento</th>
+      <th>Lado Direito (0–5)</th>
+      <th>Lado Esquerdo (0–5)</th>
+      <th>Cor Direita</th>
+      <th>Cor Esquerda</th>
+      <th>Força Direita (%)</th>
+      <th>Força Esquerda (%)</th>
+      <th>Interpretação</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>Flexão de Quadril <br><small>(Iliopsoas, Reto Femoral)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD0"></td>
+      <td class="color-box" id="colorE0"></td>
+      <td id="percentD0"></td>
+      <td id="percentE0"></td>
+      <td id="interp0"></td>
+    </tr>
+    
+    <tr>
+      <td>Extensão de Quadril <br><small>(Glúteo Máximo, Isquiotibiais)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD1"></td>
+      <td class="color-box" id="colorE1"></td>
+      <td id="percentD1"></td>
+      <td id="percentE1"></td>
+      <td id="interp1"></td>
+    </tr>
+    
+    <tr>
+      <td>Abdução de Quadril <br><small>(Glúteo Médio, Glúteo Mínimo)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD2"></td>
+      <td class="color-box" id="colorE2"></td>
+      <td id="percentD2"></td>
+      <td id="percentE2"></td>
+      <td id="interp2"></td>
+    </tr>
+    
+    <tr>
+      <td>Adução de Quadril <br><small>(Adutores)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD3"></td>
+      <td class="color-box" id="colorE3"></td>
+      <td id="percentD3"></td>
+      <td id="percentE3"></td>
+      <td id="interp3"></td>
+    </tr>
+    
+    <tr>
+      <td>Flexão de Joelho <br><small>(Isquiotibiais)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD4"></td>
+      <td class="color-box" id="colorE4"></td>
+      <td id="percentD4"></td>
+      <td id="percentE4"></td>
+      <td id="interp4"></td>
+    </tr>
+    
+    <tr>
+      <td>Extensão de Joelho <br><small>(Quadríceps)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD5"></td>
+      <td class="color-box" id="colorE5"></td>
+      <td id="percentD5"></td>
+      <td id="percentE5"></td>
+      <td id="interp5"></td>
+    </tr>
+    
+    <tr>
+      <td>Dorsiflexão do Tornozelo <br><small>(Tibial Anterior)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD6"></td>
+      <td class="color-box" id="colorE6"></td>
+      <td id="percentD6"></td>
+      <td id="percentE6"></td>
+      <td id="interp6"></td>
+    </tr>
+    
+    <tr>
+      <td>Flexão Plantar <br><small>(Gastrocnêmio, Sóleo)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD7"></td>
+      <td class="color-box" id="colorE7"></td>
+      <td id="percentD7"></td>
+      <td id="percentE7"></td>
+      <td id="interp7"></td>
+    </tr>
+    
+    <tr>
+      <td>Flexão de Ombro <br><small>(Deltoide Anterior)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD8"></td>
+      <td class="color-box" id="colorE8"></td>
+      <td id="percentD8"></td>
+      <td id="percentE8"></td>
+      <td id="interp8"></td>
+    </tr>
+    
+    <tr>
+      <td>Abdução de Ombro <br><small>(Deltoide Médio)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD9"></td>
+      <td class="color-box" id="colorE9"></td>
+      <td id="percentD9"></td>
+      <td id="percentE9"></td>
+      <td id="interp9"></td>
+    </tr>
+    
+    <tr>
+      <td>Extensão de Cotovelo <br><small>(Tríceps)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD10"></td>
+      <td class="color-box" id="colorE10"></td>
+      <td id="percentD10"></td>
+      <td id="percentE10"></td>
+      <td id="interp10"></td>
+    </tr>
+    
+    <tr>
+      <td>Flexão de Cotovelo <br><small>(Bíceps)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD11"></td>
+      <td class="color-box" id="colorE11"></td>
+      <td id="percentD11"></td>
+      <td id="percentE11"></td>
+      <td id="interp11"></td>
+    </tr>
+    
+    <tr>
+      <td>Extensão de Punho <br><small>(Extensores do Antebraço)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD12"></td>
+      <td class="color-box" id="colorE12"></td>
+      <td id="percentD12"></td>
+      <td id="percentE12"></td>
+      <td id="interp12"></td>
+    </tr>
+    
+    <tr>
+      <td>Flexão de Punho <br><small>(Flexores do Antebraço)</small></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td><input type="number" min="0" max="5" step="0.5" value="5" onchange="atualizar(this)"></td>
+      <td class="color-box" id="colorD13"></td>
+      <td class="color-box" id="colorE13"></td>
+      <td id="percentD13"></td>
+      <td id="percentE13"></td>
+      <td id="interp13"></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<script>
+const graus = {
+  5:   {classe: "grau-5",  texto: "Força normal",            perc: 100},
+  4.5: {classe: "grau-4p", texto: "Quase normal",            perc: 90},
+  4:   {classe: "grau-4",  texto: "Déficit leve",            perc: 80},
+  3.5: {classe: "grau-4m", texto: "Déficit leve/moderado",   perc: 65},
+  3:   {classe: "grau-3",  texto: "Déficit moderado",        perc: 50},
+  2:   {classe: "grau-2",  texto: "Déficit severo",          perc: 35},
+  1:   {classe: "grau-1",  texto: "Déficit grave",           perc: 15},
+  0:   {classe: "grau-0",  texto: "Sem contração",           perc: 0}
+};
+
+function getData(val) {
+  val = parseFloat(val);
+  if (isNaN(val)) return graus[0];
+  if (val > 4 && val < 5) return graus[4.5];
+  if (val > 3 && val < 4) return graus[3.5];
+  return graus[val] || graus[0];
+}
+
+function atualizar(input) {
+  const row = input.parentElement.parentElement;
+  const idx = row.rowIndex - 1;
+
+  const valD = parseFloat(row.cells[1].children[0].value) || 0;
+  const valE = parseFloat(row.cells[2].children[0].value) || 0;
+
+  const dataD = getData(valD);
+  const dataE = getData(valE);
+
+  row.cells[3].textContent = dataD.texto;
+  row.cells[3].className = `color-box ${dataD.classe}`;
+  row.cells[4].textContent = dataE.texto;
+  row.cells[4].className = `color-box ${dataE.classe}`;
+  row.cells[5].textContent = dataD.perc + "%";
+  row.cells[6].textContent = dataE.perc + "%";
+
+  let interp = "";
+  const diff = Math.abs(dataD.perc - dataE.perc);
+
+  if (valD === valE && valD < 5) {
+    interp = `Simetria com déficit (${dataD.texto})`;
+  } else if (valD === valE && valD === 5) {
+    interp = `Força normal bilateral`;
+  } else if (diff < 10) {
+    interp = "Força praticamente simétrica";
+  } else if (dataD.perc > dataE.perc) {
+    interp = `Déficit maior no lado esquerdo (${dataE.texto})`;
+  } else {
+    interp = `Déficit maior no lado direito (${dataD.texto})`;
+  }
+
+  row.cells[7].textContent = interp;
+}
+
+document.querySelectorAll("input").forEach(el => el.dispatchEvent(new Event("change")));
+</script>
+
+</body>
+</html>
